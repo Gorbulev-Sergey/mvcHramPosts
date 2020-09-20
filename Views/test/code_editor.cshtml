@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "code_editor";
+}
+
+<h1>code_editor</h1>
+
+<div class="card mb-3">
+    <div class="card-body">
+        <div id="editor" style="min-height:200px;" contenteditable="true">
+            <div>
+                <img class="card-img w-50" src="https://sun9-12.userapi.com/c206516/v206516708/2f4a6/1nD88JsvxDM.jpg" />
+            </div>
+        </div>
+    </div>    
+    <div class="card-footer">
+        <div class="btn-group">
+            <button class="btn btn-light" onclick="show_code(this)">html код / содержимое</button>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{ 
+    <script>
+        var show_code = function (send) {
+            if ($(send).hasClass('code')) {
+                $(send).removeClass('code');
+                $(send).button('toggle');
+                $('#editor').css('white-space','normal');
+                $('#editor').html($.parseHTML($('#editor').text()));
+            }
+            else {
+                $(send).addClass('code');
+                $(send).button('toggle');
+                $('#editor').css('white-space','pre-wrap');
+                $('#editor').text($('#editor').html());
+            }
+        }
+    </script>
+}
+
+

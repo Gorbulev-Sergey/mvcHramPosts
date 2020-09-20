@@ -1,0 +1,16 @@
+﻿User-agent: *
+Disallow: /Identity/Account
+Disallow: /Identity/Account/Login
+Disallow: /Identity/Account/Register
+Disallow: /Identity/Account/Manage
+Disallow: /Identity/Account/Manage/ChangePassword
+Disallow: /Identity/Account/Manage/ExternalLogins
+Disallow: /Identity/Account/Manage/TwoFactorAuthentication
+Disallow: /Identity/Account/Manage/PersonalData
+Disallow: /Identity/Account/Manage/EnableAuthenticator
+Disallow: /Identity/Account/Manage/ResetAuthenticator
+
+Disallow: /Control
+Disallow: /test
+Host: http://www.hram-babynino.somee.com
+Sitemap: http://www.hram-babynino.somee.com/sitemap.xml

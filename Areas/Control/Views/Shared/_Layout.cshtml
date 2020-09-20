@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="храм бабынино Вознесения Господня поселок калуга калужская область бабынинский район Вознесение Господне" />
+    <meta name="keywords" content="храм бабынино, храм Вознесения Господня, храм поселок бабынино, калуга храм, калужская область храм, бабынинский район храм, Вознесение Господне" />
+    <meta name="description" content="Сайт храма Вознесения Господня пос. Бабынино Калужской обл." />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3 pt-1 pb-1">
+            <div class="container">
+                <a class="navbar-brand font-weight-bold align-text-top" style="text-shadow:0px -2px 5px rgba(0, 0, 0,0.1);" asp-area="Control" asp-controller="Home" asp-action="Index">Панель управления</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <partial name="_LoginPartial" />
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Создать
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" asp-area="Control" asp-controller="posts" asp-action="Create">Публикацию</a>
+                                <a class="dropdown-item" asp-area="Control" asp-controller="imageAlbums" asp-action="Create">Фотоальбом</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Control" asp-controller="posts" asp-action="Index">Публикации</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Control" asp-controller="imageAlbums" asp-action="Index">Фотоальбомы</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2020 - Храм Вознесения Господня п. Бабынино
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery-ajax-unobtrusive/dist/jquery.unobtrusive-ajax.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

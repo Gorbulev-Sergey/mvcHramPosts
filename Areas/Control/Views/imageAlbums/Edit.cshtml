@@ -1,0 +1,114 @@
+﻿@model mvcHramPosts.Models.imageAlbum
+
+@{
+    ViewData["Title"] = "Редактировать фотоальбом";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    @*Заголовок страницы*@
+    <h1>Редактировать</h1>
+    @*Кнопка создать*@
+    @*Кнопки сохранения и отмены*@
+    <div class="form-group mb-0">
+        <a asp-area="Control" asp-controller="imageAlbums" asp-action="Index" class="btn btn-link">Назад</a>
+        <input type="button" value="Сохранить" class="btn btn-primary" onclick="$('#short_content').val($('#short_content_fake').html()); $('#content').val($('#content_fake').html()); $('#form').submit()" />
+    </div>
+</div>
+
+<hr class="mt-1" />
+<form id="form" asp-action="Edit">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="row">
+        <div class="col-md-2">
+            <div class="list-group" id="list-tab" role="tablist">
+                <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home">Обложка</a>
+                <a class="list-group-item list-group-item-action" id="list-images-list" data-toggle="list" href="#list-images">Фотографии</a>
+            </div>
+        </div>
+        <div class="col-md-10 mt-3 mt-md-0">
+            <div class="tab-content" id="nav-tabContent">
+                @*Обложка публикации*@
+                <div class="tab-pane fade show active" id="list-home">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group">
+                                <label asp-for="title" class="control-label"></label>
+                                <input asp-for="title" class="form-control" />
+                                <span asp-validation-for="title" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="cover_image" class="control-label"></label>
+                                <input asp-for="cover_image" class="form-control" oninput="$(this).next().next().attr('src', $(this).val())" />
+                                <span asp-validation-for="cover_image" class="text-danger"></span>
+                                <img id="cover" class="card-img w-100 mt-3" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*Содержимое публикации*@
+                <div class="tab-pane fade" id="list-images">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <button type="button" class="btn btn-light" onclick="$('#field_and_image').clone().removeAttr('hidden').removeAttr('id').appendTo($(this).parent().next())">Добавить изображение &nbsp;<i class="fas fa-plus-circle text-primary"></i></button>
+                            </div>
+                            <div class="form-group">@*Место для вставки поля ввода с картинкой*@
+                            @{int i = 0; }
+                            @foreach (image photo in Model.images)
+                            {
+                                <div class="form-row mb-2">
+                                    <div class="col-9">
+                                        <input name="images[@i].ID" hidden value="@photo.ID" />
+                                        <input name="images[@i].imageAlbumID" hidden value="@photo.imageAlbumID" />
+                                        <input name="images[@i].postID" hidden value="@photo.postID" />
+                                        <input name="images[@i].created" hidden value="@photo.created" />
+                                        <input name="images[@i].updated" hidden value="@photo.updated" />
+                                        <input name="images[@i].url" class="form-control" value="@photo.url" oninput="$(this).parent().next().children().first().attr('src', $(this).val())" placeholder="Url изображения" />
+                                        <input name="images[@i].title" class="form-control mt-1 form-control-sm border-0" value="@photo.title" placeholder="Название изображения" />
+                                        @{i++; }
+                                    </div>
+                                    <div class="col-2">
+                                        <img class="card-img" src="@photo.url" />
+                                    </div>
+                                    <div class="col-1">
+                                        <button type="button" class="btn btn-light text-danger" onclick="$(this).parent().parent().remove()" title="Удалить изображение"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                            }                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+@*Вспомогательные элементы*@
+@*Элемент поле ввода с картинкой*@
+<div id="field_and_image" class="form-row mb-2" hidden>
+    <div class="col-9">
+        <input name="images_urls" class="form-control" oninput="$(this).parent().next().children().first().attr('src', $(this).val())" placeholder="Url изображения" />
+        <input name="images_titles" class="form-control mt-1 form-control-sm border-0" placeholder="Название изображения" />
+    </div>
+    <div class="col-2">
+        <img class="card-img" />
+    </div>
+    <div class="col-1">
+        <button type="button" class="btn btn-light text-danger" onclick="$(this).parent().parent().remove()" title="Удалить изображение"><i class="fas fa-trash"></i></button>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        $(document).ready(function () {
+            $("#cover").attr("src", $("#cover_image").val());
+        });
+    </script>
+}

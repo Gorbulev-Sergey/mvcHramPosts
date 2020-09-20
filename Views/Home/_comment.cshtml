@@ -1,0 +1,10 @@
+﻿@model mvcHramPosts.Models.comment
+
+<p>
+    <span class="badge badge-pill badge-dark mr-2">
+        @Model.userName
+        <span class="badge badge-pill badge-light">@Model.created.ToShortDateString()</span>
+    </span>
+    @Model.text
+</p>
+

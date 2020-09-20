@@ -1,0 +1,6 @@
+﻿@model IEnumerable<mvcHramPosts.Models.comment>
+
+@foreach (var comment in Model.Reverse())
+{
+    <partial name="_comment" model="comment" />
+}

@@ -1,0 +1,32 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<user> SignInManager
+@inject UserManager<user> UserManager
+
+    <ul class="navbar-nav">
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <li class="nav-item dropleft">
+                <a class="nav-link text-dark font-weight-bold" style="font-size:17pt" data-toggle="dropdown" href="#" title="Профиль"><i class="far fa-user-circle"></i></a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@User.Identity.Name</a>
+                    @if (User.IsInRole("администратор"))
+                    {
+                        <a class="dropdown-item text-dark" asp-area="Control" asp-controller="Home" asp-action="Index" title="Control">Панель управления</a>
+                    }
+                    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                        <button type="submit" class="dropdown-item text-dark">Выход</button>
+                    </form>
+                </div>
+            </li>
+        }
+        else
+        {
+            <li class="nav-item dropleft">
+                <a class="nav-link text-dark font-weight-bold" style="font-size:17pt" data-toggle="dropdown" href="#" title="Профиль"><i class="far fa-user-circle"></i></a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item text-dark" asp-area="Identity" asp-page="/Account/Register">Регистрация</a>
+                    <a class="dropdown-item text-dark" asp-area="Identity" asp-page="/Account/Login">Вход</a>
+                </div>
+            </li>
+        }
+    </ul>

@@ -1,0 +1,217 @@
+﻿@using Microsoft.AspNetCore.Http.Extensions
+@{
+    ViewData["Title"] = "TestImageAlbum";
+}
+<style>
+    .название_альбома{
+        background:rgba(0,0,0,0.2)
+    }
+    button:hover .название_альбома {
+        background:rgba(0,0,0,0.4)
+    }
+</style>
+
+<h1>TestImageAlbum</h1>
+
+<div class="row mt-3">
+    <div class="col-md-4 mb-md-1 mb-3 p-md-2">
+        <div class="card position-relative border-0">
+            <form asp-controller="imageAlbums" asp-action="GetImages" method="post" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#images">
+                <button class="btn btn-link m-0 p-0 border-0" type="submit" onclick="$('#modal_big_img').modal('show')">
+                    <img src="https://sun9-12.userapi.com/c206516/v206516708/2f4a6/1nD88JsvxDM.jpg" class="card-img">
+                    <div class="card-footer border-0 position-absolute fixed-bottom text-left text-white название_альбома">
+                        <h5 class="card-title">Храм</h5>
+                        <p class="card-text"><small class="text-muted">Опубликовано @DateTime.Now.ToShortDateString()</small></p>
+                    </div>
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-4 mb-md-1 mb-3 p-md-2">
+        <div class="card position-relative border-0">
+            <form asp-controller="imageAlbums" asp-action="GetImages" method="post" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#images">
+                <button class="btn btn-link m-0 p-0 border-0" type="submit" onclick="$('#modal_big_img').modal('show')">
+                    <img src="https://sun9-28.userapi.com/c855428/v855428615/1f98e5/9GFBQCm8DPg.jpg" class="card-img">
+                    <div class="card-footer border-0 position-absolute fixed-bottom text-left text-white название_альбома">
+                        <h5 class="card-title">Другое название</h5>
+                        <p class="card-text"><small class="text-muted">Опубликовано @DateTime.Now.ToShortDateString()</small></p>
+                    </div>
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-4 mb-md-1 mb-3 p-md-2">
+        <div class="card position-relative border-0">
+            <form asp-controller="imageAlbums" asp-action="GetImages" method="post" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#images">
+                <button class="btn btn-link m-0 p-0 border-0" type="submit" onclick="$('#modal_big_img').modal('show')">
+                    <img src="https://sun9-62.userapi.com/c855428/v855428615/1f98b3/72Wm0D_AYyQ.jpg" class="card-img">
+                    <div class="card-footer border-0 position-absolute fixed-bottom text-left text-white название_альбома">
+                        <h5 class="card-title">Третье название</h5>
+                        <p class="card-text"><small class="text-muted">Опубликовано @DateTime.Now.ToShortDateString()</small></p>
+                    </div>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-2 p-md-2">
+        <div class="card position-relative border-0">
+            <form asp-controller="imageAlbums" asp-action="GetImages" method="post" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#images">
+                <button class="btn btn-link m-0 p-0 border-0" type="submit" onclick="$('#modal_big_img').modal('show')">
+                    <img src="https://sun9-18.userapi.com/c855428/v855428615/1f9935/gK62jxmo45o.jpg" class="card-img">
+                    <div class="card-footer border-0 position-absolute fixed-bottom text-left text-white название_альбома">
+                        <h5 class="card-title">Храм</h5>
+                        <p class="card-text"><small class="text-muted">Опубликовано @DateTime.Now.ToShortDateString()</small></p>
+                    </div>
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-4 mb-2 p-md-2">
+        <div class="card position-relative border-0">
+            <form asp-controller="imageAlbums" asp-action="GetImages" method="post" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#images">
+                <button class="btn btn-link m-0 p-0 border-0" type="submit" onclick="$('#modal_big_img').modal('show')">
+                    <img src="https://sun9-11.userapi.com/c855428/v855428615/1f993f/JRD3FwXHn7U.jpg" class="card-img">
+                    <div class="card-footer border-0 position-absolute fixed-bottom text-left text-white название_альбома">
+                        <h5 class="card-title">Другое название</h5>
+                        <p class="card-text"><small class="text-muted">Опубликовано @DateTime.Now.ToShortDateString()</small></p>
+                    </div>
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-4 mb-2 p-md-2">
+        <div class="card position-relative border-0">
+            <form asp-controller="imageAlbums" asp-action="GetImages" method="post" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#images">
+                <button class="btn btn-link m-0 p-0 border-0" type="submit" onclick="$('#modal_big_img').modal('show')">
+                    <img src="https://sun9-34.userapi.com/c858428/v858428987/29498/0vjKRNtbLAE.jpg" class="card-img">
+                    <div class="card-footer border-0 position-absolute fixed-bottom text-left text-white название_альбома">
+                        <h5 class="card-title">Третье название</h5>
+                        <p class="card-text"><small class="text-muted">Опубликовано @DateTime.Now.ToShortDateString()</small></p>
+                    </div>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="dropup float-right">
+    <button class="btn btn-light" data-toggle="dropdown"><i class="fas fa-share-alt"></i></button>
+    <div class="dropdown-menu dropdown-menu-right mb-2 p-0 border-0">
+        <div class="btn-group">
+            <a class="btn btn-light" href="https://vk.com/share.php?url=@Context.Request.GetDisplayUrl()/10" target="_blank" rel="nofollow">
+                <i class="fab fa-vk" style="font-size:large"></i>
+            </a>
+            <a class="btn btn-light" href="https://connect.ok.ru/offer?url=@Context.Request.GetDisplayUrl()/10" target="_blank">
+                <i class="fab fa-odnoklassniki" style="font-size:large"></i>
+            </a>
+            <a class="btn btn-light" href="https://twitter.com/intent/tweet?&url=@Context.Request.GetDisplayUrl()/10" target="_blank">
+                <i class="fab fa-twitter" style="font-size:large"></i>
+            </a>
+            <a class="btn btn-light" href="https://www.facebook.com/sharer.php?u=@Context.Request.GetDisplayUrl()/10" target="_blank">
+                <i class="fab fa-facebook-f" style="font-size:large"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="card-columns display: inline-block mt-3">
+    <div class="card position-relative border-0">
+        <form asp-controller="imageAlbums" asp-action="GetImages" method="post" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#images">
+            <button class="btn btn-link m-0 p-0 border-0" type="submit" onclick="$('#modal_big_img').modal('show')">
+                <img src="https://sun9-12.userapi.com/c206516/v206516708/2f4a6/1nD88JsvxDM.jpg" class="card-img">
+                <div class="card-footer border-0 position-absolute fixed-bottom text-left text-white название_альбома">
+                    <h5 class="card-title">Храм</h5>
+                    <p class="card-text"><small class="text-muted">Опубликовано @DateTime.Now.ToShortDateString()</small></p>
+                </div>
+            </button>
+        </form>
+    </div>
+    <div class="card position-relative border-0">
+        <form asp-controller="imageAlbums" asp-action="GetImages" method="post" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#images">
+            <button class="btn btn-link m-0 p-0 border-0" type="submit" onclick="$('#modal_big_img').modal('show')">
+                <img src="https://sun9-28.userapi.com/c855428/v855428615/1f98e5/9GFBQCm8DPg.jpg" class="card-img">
+                <div class="card-footer border-0 position-absolute fixed-bottom text-left text-white название_альбома">
+                    <h5 class="card-title">Другое название</h5>
+                    <p class="card-text"><small class="text-muted">Опубликовано @DateTime.Now.ToShortDateString()</small></p>
+                </div>
+            </button>
+        </form>
+    </div>
+    <div class="card position-relative border-0">
+        <form asp-controller="imageAlbums" asp-action="GetImages" method="post" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#images">
+            <button class="btn btn-link m-0 p-0 border-0" type="submit" onclick="$('#modal_big_img').modal('show')">
+                <img src="https://sun9-62.userapi.com/c855428/v855428615/1f98b3/72Wm0D_AYyQ.jpg" class="card-img">
+                <div class="card-footer border-0 position-absolute fixed-bottom text-left text-white название_альбома">
+                    <h5 class="card-title">Третье название</h5>
+                    <p class="card-text"><small class="text-muted">Опубликовано @DateTime.Now.ToShortDateString()</small></p>
+                </div>
+            </button>
+        </form>
+    </div>
+
+
+    <div class="card h-100 d-flex flex-column">
+        <form asp-controller="imageAlbums" asp-action="GetImages" method="post" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#images">
+            <button class="btn btn-link m-0 p-0 border-0" type="submit" onclick="$('#modal_big_img').modal('show')">
+                <img src="https://sun9-12.userapi.com/c206516/v206516708/2f4a6/1nD88JsvxDM.jpg" class="card-img-top mb-auto" alt="...">
+            </button>
+        </form>
+        <div class="card-footer bg-white border-0 p-3">
+            <h5 class="card-title">Храм</h5>
+            <p class="card-text"><small class="text-muted">Опубликовано @DateTime.Now.ToShortDateString()</small></p>
+        </div>
+    </div>
+    <div class="card h-100 d-flex flex-column">
+        <a href="#" onclick="$('#modal_big_img').modal('show')">
+            <img src="https://sun9-29.userapi.com/c850532/v850532651/96ce9/coPskqvjcLk.jpg" class="card-img-top mb-auto" alt="...">
+        </a>
+        <div class="card-footer bg-white border-0">
+            <h5 class="card-title">Крещение Господне</h5>
+            <p class="card-text"><small class="text-muted">Опубликовано @DateTime.Now.ToShortDateString()</small></p>
+        </div>
+    </div>
+    <div class="card h-100 d-flex flex-column">
+        <a href="#" onclick="$('#modal_big_img').modal('show')">
+            <img src="https://sun9-34.userapi.com/c858428/v858428987/29498/0vjKRNtbLAE.jpg" class="card-img-top mb-auto" alt="...">
+        </a>
+        <div class="card-footer bg-white border-0">
+            <h5 class="card-title">На источнике</h5>
+            <p class="card-text"><small class="text-muted">Опубликовано @DateTime.Now.ToShortDateString()</small></p>
+        </div>
+    </div>
+</div>
+
+
+<div class="card mt-4">
+    <div class="card-body">
+        <div class="btn-group btn-group-lg">
+            <a class="btn btn-light" href="https://vk.com/share.php?url=@Context.Request.GetDisplayUrl()?ID=10" target="_blank" rel="nofollow">
+                <i class="fab fa-vk" style="font-size:large"></i>
+            </a>
+            <a class="btn btn-light" href="https://ok.ru/share.php?url=@Context.Request.GetDisplayUrl()?ID=10" target="_blank">
+                <i class="fab fa-odnoklassniki" style="font-size:large"></i>
+            </a>
+            <a class="btn btn-light" href="https://instagram.com?url=@Context.Request.GetDisplayUrl()?ID=10" target="_blank">
+                <i class="fab fa-instagram" style="font-size:large"></i>
+            </a>
+            <a class="btn btn-light" href="https://twitter.com/intent/tweet?status=@Context.Request.GetDisplayUrl()?ID=10" target="_blank">
+                <i class="fab fa-twitter" style="font-size:large"></i>
+            </a>
+            <a class="btn btn-light" href="https://www.facebook.com/sharer/sharer.php?src=@Context.Request.GetDisplayUrl()?ID=10" target="_blank">
+                <i class="fab fa-facebook-f" style="font-size:large"></i>
+            </a>
+        </div>
+    </div>    
+</div>
+
+
+<div id="modal" class="bg-dark" style="height:100vh">
+    <img class="img-fluid" src="https://sun9-46.userapi.com/c206516/v206516708/2f2ff/S9sJ1G7yY7U.jpg" />
+</div>
+
+
+
+
+

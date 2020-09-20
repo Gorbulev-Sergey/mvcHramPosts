@@ -1,0 +1,103 @@
+﻿@model mvcHramPosts.Models.post
+@using Microsoft.EntityFrameworkCore
+@using Microsoft.AspNetCore.Http.Extensions
+
+@{
+    ViewData["Title"] = "Details";
+    var context = ViewBag.context as mvcHramPosts.Data.ApplicationDbContext;
+}
+
+
+<div id="accordion" class="mt-3">
+    <div class="card mb-4">
+        <!--Верхняя часть публикации-->
+        <div class="row no-gutters">
+            <div class="col-lg d-flex flex-column">
+                <div class="card-body mb-auto">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <!--Название публикаци-->
+                            <h2 class="card-title">@Model.title</h2>
+                            <!--Сокращённое содержимое-->
+                            @Html.Raw(Model.description)<br />
+                            <small class="text-muted">Опубликовано @Model.updated.ToShortDateString()</small>
+                        </div>
+                        <div>
+                            @*Кнопки сохранения и отмены*@
+                            <div class="form-group">
+                                <a asp-action="Index" class="btn btn-light">К списку записей</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-3 d-flex justify-content-between">
+                    <div>
+                        <!--Кнопки комментарии, нравится, поделиться-->
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <form class="d-inline-block" asp-controller="Home" asp-action="AddLike" method="post" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#like_@Model.ID">
+                                <button id="like_@Model.ID" class="btn btn-light align-self-center" type="submit">
+                                    @if (context.Users.FirstOrDefault(u => u.UserName == User.Identity.Name).likes.FirstOrDefault(l => l.postID == Model.ID) != null)
+                                    {
+                                        <i class="far fa-heart text-danger font-weight-bold"></i>
+                                    }
+                                    else
+                                    {
+                                        <i class="far fa-heart text-dark"></i>
+                                    }
+                                </button>
+                                <input name="postID" value="@Model.ID" hidden />
+                            </form>
+                            <button class="btn btn-light align-self-center" onclick="$(this).parent().parent().parent().parent().next().collapse('toggle')"><i class="far fa-comment-alt"></i></button>
+                        }
+                        <div class="dropup float-right">
+                            <button class="btn btn-light align-self-center" data-toggle="dropdown"><i class="fas fa-share-alt"></i></button>
+                            <div class="dropdown-menu dropdown-menu-right mb-2 p-0 border-0">
+                                <div class="btn-group">
+                                    <a class="btn btn-light" href="https://vk.com/share.php?url=@Url.Action("Details","Home", new {ID= Model.ID },this.Context.Request.Scheme)" target="_blank">
+                                        <i class="fab fa-vk" style="font-size:large"></i>
+                                    </a>
+                                    <a class="btn btn-light" href="https://connect.ok.ru/offer?url=@Url.Action("Details","Home", new {ID= Model.ID },this.Context.Request.Scheme)" target="_blank">
+                                        <i class="fab fa-odnoklassniki" style="font-size:large"></i>
+                                    </a>
+                                    <a class="btn btn-light" href="https://twitter.com/intent/tweet?&url=@Url.Action("Details","Home", new {ID= Model.ID },this.Context.Request.Scheme)" target="_blank">
+                                        <i class="fab fa-twitter" style="font-size:large"></i>
+                                    </a>
+                                    <a class="btn btn-light" href="https://www.facebook.com/sharer.php?u=@Url.Action("Details","Home", new {ID= Model.ID },this.Context.Request.Scheme)" target="_blank">
+                                        <i class="fab fa-facebook-f" style="font-size:large"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Комментарии-->
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="card-body collapse" data-parent="#accordion">
+                <form asp-controller="Home" asp-action="AddComment" method="post" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#comment_@Model.ID">
+                    <div class="card-body p-1">
+                        <div class="input-group">
+                            <input name="postID" value="@Model.ID" hidden />
+                            <input name="text" hidden>
+                            <input name="fake_text" type="text" class="form-control" placeholder="Напишите комментарий" />
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="submit" onclick="$(this).parent().parent().children().first().next().val($(this).parent().parent().children().first().next().next().val()); $(this).parent().parent().children().first().next().next().val('')">Добавить</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div id="comment_@Model.ID" class="card-body p-3">
+                    <partial name="_comments" for="@Model.comments" />
+                </div>
+            </div>
+        }
+        <!--Полное содержимое-->
+        <div class="card-body">
+            @Html.Raw(Model.content)
+        </div>
+    </div>
+</div>
+

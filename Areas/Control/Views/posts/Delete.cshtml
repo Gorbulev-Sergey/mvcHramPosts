@@ -1,0 +1,67 @@
+﻿@model mvcHramPosts.Models.post
+
+@{
+    ViewData["Title"] = "Удаление публикации";
+}
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        @*Заголовок страницы*@
+        <h1>Удалить</h1>
+        <h3>Вы уверены, что хотите удалить эту публикацию?</h3>
+        @*Кнопка Удалить*@
+            <form class="form-group mb-0" asp-action="Delete">
+                <input type="hidden" asp-for="ID" />
+                <input type="submit" value="Delete" class="btn btn-danger" /> |
+                <a asp-area="Control" asp-controller="posts" asp-action="Index">Back to List</a>
+            </form>
+    </div>
+
+
+<div>
+    <h4>Публикация</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.cover_image)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.cover_image)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.content)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.content)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.type)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.type)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.created)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.created)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.updated)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.updated)
+        </dd>
+    </dl>  
+</div>
