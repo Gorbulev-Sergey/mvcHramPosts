@@ -47,7 +47,7 @@ namespace mvcHramPosts
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc();
             services.AddAuthentication()
                 .AddGoogle(options =>
                 {
