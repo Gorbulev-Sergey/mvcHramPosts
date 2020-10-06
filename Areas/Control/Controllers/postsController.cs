@@ -143,7 +143,11 @@ namespace mvcHramPosts.Areas.Control.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var post = await _context.posts.FindAsync(id);
+            // Здесь Include нужно для того, чтобы включить каскадное удаление, то есть удалить не только пост,
+            // но и входящие в него комментарии, лайки, фотографии и видеозаписи
+            var post = await _context.posts
+                .Include(p => p.comments).Include(p => p.images).Include(p => p.likes).Include(p => p.videos)
+                .FirstOrDefaultAsync(p => p.ID == id);
             _context.posts.Remove(post);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

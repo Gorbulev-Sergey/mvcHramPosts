@@ -1,0 +1,187 @@
+﻿@{
+    ViewData["Title"] = "razmetka_pu";
+    Layout = null;
+}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+      asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
+      crossorigin="anonymous"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+
+<style>
+    @@media screen and (min-width:700px) {
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .my_sidebar {
+            position: fixed;
+            top: 0;
+            z-index:10000;
+            width: 300px;
+            height: 100%;
+            color: white;
+        }
+
+        .my_header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            margin-left: 300px;
+            background-color: bisque;
+        }
+
+        .my_content {
+            margin-left: 300px;
+            margin-top: 60px;
+        }
+
+        .my_gamburger {
+            display: none;
+        }
+    }
+
+    @@media screen and (max-width:700px) {
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .my_sidebar {
+            position: fixed;
+            top: 0;
+            z-index:10000;
+            width: 100%;
+            min-height: 50px;
+            color: white;
+        }
+
+        .my_header {
+            position: fixed;
+            top: 50px;
+            width: 100%;
+            background-color: bisque;
+        }
+
+        .my_content {
+            margin-top: 110px;
+        }
+
+        .my_gamburger {
+            display: inline-block;
+        }
+    }
+</style>
+
+<div>
+    <div class="my_sidebar p-3 bg-secondary">        
+        <div>
+            <button class="my_gamburger btn btn-dark" data-toggle="collapse" data-target="#collapseExample"><i class="fas fa-bars"></i></button>
+            <h5 class="d-inline-block mb-3">Панель навигации</h5>
+
+            <nav class="collapse bg-dark text-white rounded" id="collapseExample">
+                <button class="btn btn-dark btn-block text-left m-0"><i class="fas fa-home pr-2"></i>Главная</button>
+                <button class="btn btn-dark btn-block text-left m-0"><i class="fas fa-users pr-2"></i>Пользователи</button>
+                <div class="rounded">
+                    @*Публикации*@
+                    <div class="btn-group btn-block rounded">
+                        <button class="btn btn-dark btn-block text-left"><i class="fas fa-book pr-2"></i>Публикации</button>
+                        <button class="btn btn-dark" data-toggle="collapse" data-target="#c1"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <div class="collapse rounded pt-1" id="c1">
+                        <button class="btn btn-dark btn-block text-left m-0 pl-3">Все публикации</button>
+                        <button class="btn btn-dark btn-block text-left m-0 pl-3">Создать</button>
+                    </div>
+                </div>
+                <div class="rounded">
+                    @*Фотоальбомы*@
+                    <div class="btn-group btn-block rounded">
+                        <button class="btn btn-dark btn-block text-left"><i class="fas fa-images pr-2"></i>Фотоальбомы</button>
+                        <button class="btn btn-dark" data-toggle="collapse" data-target="#c2"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <div class="collapse rounded pt-1" id="c2">
+                        <button class="btn btn-dark btn-block text-left m-0 pl-3">Все фотоальбомы</button>
+                        <button class="btn btn-dark btn-block text-left m-0 pl-3">Создать</button>
+                    </div>
+                </div>
+                <div class="rounded">
+                    @*Комментарии*@
+                    <div class="btn-group btn-block rounded">
+                        <button class="btn btn-dark btn-block text-left"><i class="far fa-comments pr-2"></i>Комментарии</button>
+                        <button class="btn btn-dark" data-toggle="collapse" data-target="#c3"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <div class="collapse rounded pt-1" id="c3">
+                        <button class="btn btn-dark btn-block text-left m-0 pl-3">Все комментарии</button>
+                        <button class="btn btn-dark btn-block text-left m-0 pl-3">Создать</button>
+                    </div>
+                </div>
+            </nav>
+            
+
+        </div>
+    </div>
+    <div class="my_header p-3">
+        <p class="mb-0">Заголовок</p>
+    </div>
+    <div class="my_content p-3">
+        <div class="row no-gutters bg-light position-relative mb-3 rounded">
+            <div class="col-md-6 mb-md-0 p-md-4">
+                <img src="https://i.artfile.ru/2048x1321_1142946_[www.ArtFile.ru].jpg" class="w-100" alt="...">
+            </div>
+            <div class="col-md-6 position-static p-4 pl-md-0">
+                <h5 class="mt-0">Columns with stretched link</h5>
+                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                <a href="#" class="stretched-link">Go somewhere</a>
+            </div>
+        </div>
+        <div class="row no-gutters bg-light position-relative mb-3 rounded">
+            <div class="col-md-6 mb-md-0 p-md-4">
+                <img src="https://i.artfile.ru/2048x1321_1142946_[www.ArtFile.ru].jpg" class="w-100" alt="...">
+            </div>
+            <div class="col-md-6 position-static p-4 pl-md-0">
+                <h5 class="mt-0">Columns with stretched link</h5>
+                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                <a href="#" class="stretched-link">Go somewhere</a>
+            </div>
+        </div>
+        <div class="row no-gutters bg-light position-relative mb-3 rounded">
+            <div class="col-md-6 mb-md-0 p-md-4">
+                <img src="https://i.artfile.ru/2048x1321_1142946_[www.ArtFile.ru].jpg" class="w-100" alt="...">
+            </div>
+            <div class="col-md-6 position-static p-4 pl-md-0">
+                <h5 class="mt-0">Columns with stretched link</h5>
+                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                <a href="#" class="stretched-link">Go somewhere</a>
+            </div>
+        </div>
+        <div class="row no-gutters bg-light position-relative mb-3 rounded">
+            <div class="col-md-6 mb-md-0 p-md-4">
+                <img src="https://i.artfile.ru/2048x1321_1142946_[www.ArtFile.ru].jpg" class="w-100" alt="...">
+            </div>
+            <div class="col-md-6 position-static p-4 pl-md-0">
+                <h5 class="mt-0">Columns with stretched link</h5>
+                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                <a href="#" class="stretched-link">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+        asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+        asp-fallback-test="window.jQuery"
+        crossorigin="anonymous"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+        asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+        asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+        crossorigin="anonymous"
+        integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
+</script>
+<script src="~/lib/jquery-ajax-unobtrusive/dist/jquery.unobtrusive-ajax.js"></script>
+

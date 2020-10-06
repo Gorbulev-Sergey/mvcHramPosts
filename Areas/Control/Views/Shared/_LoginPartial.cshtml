@@ -5,8 +5,8 @@
 <ul class="navbar-nav">
     @if (SignInManager.IsSignedIn(User))
         {
-    <li class="nav-item dropleft">
-        <a class="nav-link text-white font-weight-bold" style="font-size:17pt" data-toggle="dropdown" href="#" title="Профиль"><i class="far fa-user-circle"></i></a>
+    <li class="nav-item dropdown">
+        <a class="nav-link text-white font-weight-bold" data-toggle="dropdown" href="#" title="Профиль"><i class="far fa-user-circle" style="font-size:17pt"></i> Профиль</a>
         <div class="dropdown-menu">
             <a class="dropdown-item text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@User.Identity.Name</a>
             <a class="dropdown-item text-dark" asp-area="" asp-controller="Home" asp-action="Index" title="Простой вид">Простой вид</a>
@@ -18,7 +18,7 @@
         }
         else
         {
-    <li class="nav-item dropleft">
+    <li class="nav-item dropdown">
         <a class="nav-link text-dark font-weight-bold" style="font-size:17pt" data-toggle="dropdown" href="#" title="Профиль"><i class="far fa-user-circle"></i></a>
         <div class="dropdown-menu">
             <a class="dropdown-item text-dark" asp-area="Identity" asp-page="/Account/Register">Регистрация</a>

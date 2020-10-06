@@ -24,5 +24,9 @@ namespace mvcHramPosts.Controllers
         {
             return View();
         }
+        public IActionResult razmetka_pu()
+        {
+            return View();
+        }
     }
 }

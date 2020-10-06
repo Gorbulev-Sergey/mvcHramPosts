@@ -13,9 +13,38 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3 pt-1 pb-1">
-            <div class="container">
+    <div>
+        <div class="position-fixed float-left navbar-dark bg-dark text-light h-100 col-3 p-3 shadow">
+            <a class="navbar-brand font-weight-bold align-text-top" style="text-shadow:0px -2px 5px rgba(0, 0, 0,0.1);" asp-area="Control" asp-controller="Home" asp-action="Index">Панель управления</a>
+
+            <ul class="navbar-nav flex-grow-1">
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="Control" asp-controller="posts" asp-action="Index">Публикации</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="Control" asp-controller="imageAlbums" asp-action="Index">Фотоальбомы</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Создать
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" asp-area="Control" asp-controller="posts" asp-action="Create">Публикацию</a>
+                        <a class="dropdown-item" asp-area="Control" asp-controller="imageAlbums" asp-action="Create">Фотоальбом</a>
+                    </div>
+                </li>        
+                <partial name="_LoginPartial" />
+            </ul> 
+        </div>
+        <div class="offset-3 col-9">
+            <div class="pt-3 pb-3 pl-5 pr-5">
+                @RenderBody()
+            </div>            
+        </div>
+    </div>
+
+    @*<div class="wrapper">
+            <div class="sidbar bg-dark text-light">
                 <a class="navbar-brand font-weight-bold align-text-top" style="text-shadow:0px -2px 5px rgba(0, 0, 0,0.1);" asp-area="Control" asp-controller="Home" asp-action="Index">Панель управления</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -42,19 +71,17 @@
                     </ul>
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+            <div class="content" id="main">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
+        </div>*@
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - Храм Вознесения Господня п. Бабынино
-        </div>
-    </footer>
+
+
+
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
