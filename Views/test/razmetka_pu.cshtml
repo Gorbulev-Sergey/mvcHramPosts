@@ -54,14 +54,12 @@
             top: 0;
             z-index:10010;
             width: 100%;
-            min-height: 63px;
             color: white;
         }
 
         .my_header {
             position: fixed;
             z-index: 10000;
-            top: 63px;
             width: 100%;
         }
 
@@ -76,55 +74,105 @@
 </style>
 
 <div>
-    <div class="my_sidebar bg-dark"> 
-        <div class="m-3">
-            <button class="my_gamburger btn btn-dark" data-toggle="collapse" data-target="#collapseExample"><i class="fas fa-bars"></i></button>
-            <h5 class="d-inline-block align-baseline mb-0">Панель навигации</h5>
+    <div class="my_sidebar bg-dark">
+        <div class="navbar navbar-expand-md bg-dark flex-column align-items-stretch" style="max-width:300px">
+            <div class="navbar-brand text-white w-100 pl-md-3">
+                <button class="navbar-toggler text-white" data-toggle="collapse" data-target="#c_me"><i class="fas fa-bars"></i></button>
+                Привет
+            </div>
+            <nav id="c_me" class="navbar-collapse collapse flex-column align-items-stretch bg-dark text-white rounded w-100 mt-2 mb-2">
+                <button class="btn btn-dark btn-block text-left m-0"><span class="fas fa-home pr-2"></span>Главная</button>
+                <button class="btn btn-dark btn-block text-left m-0"><span class="fas fa-users pr-2"></span>Пользователи</button>
+                <div class="rounded">
+                    @*Публикации*@
+                    <div class="btn-group btn-block rounded">
+                        <button class="btn btn-dark btn-block text-left"><span class="fas fa-book pr-2"></span>Публикации</button>
+                        <button class="btn btn-dark" data-toggle="collapse" data-target="#c1"><span class="fas fa-chevron-down"></span></button>
+                    </div>
+                    <div class="collapse rounded" id="c1">
+                        <button class="btn btn-dark btn-block text-left m-0 pl-4">Все публикации</button>
+                        <button class="btn btn-dark btn-block text-left m-0 pl-4">Создать</button>
+                    </div>
+                </div>
+                <div class="rounded">
+                    @*Фотоальбомы*@
+                    <div class="btn-group btn-block rounded">
+                        <button class="btn btn-dark btn-block text-left"><i class="fas fa-images pr-2"></i>Фотоальбомы</button>
+                        <button class="btn btn-dark" data-toggle="collapse" data-target="#c2"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <div class="collapse rounded" id="c2">
+                        <button class="btn btn-dark btn-block text-left m-0 pl-4">Все фотоальбомы</button>
+                        <button class="btn btn-dark btn-block text-left m-0 pl-4">Создать</button>
+                    </div>
+                </div>
+                <div class="rounded">
+                    @*Комментарии*@
+                    <div class="btn-group btn-block rounded">
+                        <button class="btn btn-dark btn-block text-left"><i class="far fa-comments pr-2"></i>Комментарии</button>
+                        <button class="btn btn-dark" data-toggle="collapse" data-target="#c3"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <div class="collapse rounded" id="c3">
+                        <button class="btn btn-dark btn-block text-left m-0 pl-4">Все комментарии</button>
+                        <button class="btn btn-dark btn-block text-left m-0 pl-4">Создать</button>
+                    </div>
+                </div>
+            </nav>
         </div>
-            
-        <nav class="bg-dark text-white rounded m-3" id="collapseExample">
-            <button class="btn btn-dark btn-block text-left m-0"><i class="fas fa-home pr-2"></i>Главная</button>
-            <button class="btn btn-dark btn-block text-left m-0"><i class="fas fa-users pr-2"></i>Пользователи</button>
-            <div class="rounded">
-                @*Публикации*@
-                <div class="btn-group btn-block rounded">
-                    <button class="btn btn-dark btn-block text-left"><i class="fas fa-book pr-2"></i>Публикации</button>
-                    <button class="btn btn-dark" data-toggle="collapse" data-target="#c1"><i class="fas fa-chevron-down"></i></button>
-                </div>
-                <div class="collapse rounded pt-1" id="c1">
-                    <button class="btn btn-dark btn-block text-left m-0 pl-3">Все публикации</button>
-                    <button class="btn btn-dark btn-block text-left m-0 pl-3">Создать</button>
-                </div>
-            </div>
-            <div class="rounded">
-                @*Фотоальбомы*@
-                <div class="btn-group btn-block rounded">
-                    <button class="btn btn-dark btn-block text-left"><i class="fas fa-images pr-2"></i>Фотоальбомы</button>
-                    <button class="btn btn-dark" data-toggle="collapse" data-target="#c2"><i class="fas fa-chevron-down"></i></button>
-                </div>
-                <div class="collapse rounded pt-1" id="c2">
-                    <button class="btn btn-dark btn-block text-left m-0 pl-3">Все фотоальбомы</button>
-                    <button class="btn btn-dark btn-block text-left m-0 pl-3">Создать</button>
-                </div>
-            </div>
-            <div class="rounded">
-                @*Комментарии*@
-                <div class="btn-group btn-block rounded">
-                    <button class="btn btn-dark btn-block text-left"><i class="far fa-comments pr-2"></i>Комментарии</button>
-                    <button class="btn btn-dark" data-toggle="collapse" data-target="#c3"><i class="fas fa-chevron-down"></i></button>
-                </div>
-                <div class="collapse rounded pt-1" id="c3">
-                    <button class="btn btn-dark btn-block text-left m-0 pl-3">Все комментарии</button>
-                    <button class="btn btn-dark btn-block text-left m-0 pl-3">Создать</button>
-                </div>
-            </div>
-        </nav>
-            
-    </div>
-    <div class="my_header p-3 bg-secondary text-white">
-        <h5 class="mb-0">Заголовок</h5>
-    </div>
+
+        <div class="my_header pl-4 pr-3 pt-2 pb-2 pt-md-3 pb-md-3 bg-secondary text-white">
+            <h5 class="mb-0">Заголовок</h5>
+        </div>
+    </div>    
     <div class="my_content p-3">
+
+
+
+        <div hidden class="navbar navbar-expand-md bg-dark flex-column align-items-stretch" style="max-width:300px">
+            <div class="navbar-brand text-white w-100 pl-md-3 mb-1">
+                <button class="navbar-toggler text-white" data-toggle="collapse" data-target="#c_me"><i class="fas fa-bars"></i></button>
+                Привет
+            </div>
+            <nav id="c_me" class="navbar-collapse collapse flex-column align-items-stretch bg-dark text-white rounded w-100 mb-2">
+                <button class="btn btn-dark btn-block text-left m-0"><span class="fas fa-home pr-2"></span>Главная</button>
+                <button class="btn btn-dark btn-block text-left m-0"><span class="fas fa-users pr-2"></span>Пользователи</button>
+                <div class="rounded">
+                    @*Публикации*@
+                    <div class="btn-group btn-block rounded">
+                        <button class="btn btn-dark btn-block text-left"><span class="fas fa-book pr-2"></span>Публикации</button>
+                        <button class="btn btn-dark" data-toggle="collapse" data-target="#c1"><span class="fas fa-chevron-down"></span></button>
+                    </div>
+                    <div class="collapse rounded" id="c1">
+                        <button class="btn btn-dark btn-block text-left m-0 pl-4">Все публикации</button>
+                        <button class="btn btn-dark btn-block text-left m-0 pl-4">Создать</button>
+                    </div>
+                </div>
+                <div class="rounded">
+                    @*Фотоальбомы*@
+                    <div class="btn-group btn-block rounded">
+                        <button class="btn btn-dark btn-block text-left"><i class="fas fa-images pr-2"></i>Фотоальбомы</button>
+                        <button class="btn btn-dark" data-toggle="collapse" data-target="#c2"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <div class="collapse rounded" id="c2">
+                        <button class="btn btn-dark btn-block text-left m-0 pl-4">Все фотоальбомы</button>
+                        <button class="btn btn-dark btn-block text-left m-0 pl-4">Создать</button>
+                    </div>
+                </div>
+                <div class="rounded">
+                    @*Комментарии*@
+                    <div class="btn-group btn-block rounded">
+                        <button class="btn btn-dark btn-block text-left"><i class="far fa-comments pr-2"></i>Комментарии</button>
+                        <button class="btn btn-dark" data-toggle="collapse" data-target="#c3"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <div class="collapse rounded" id="c3">
+                        <button class="btn btn-dark btn-block text-left m-0 pl-4">Все комментарии</button>
+                        <button class="btn btn-dark btn-block text-left m-0 pl-4">Создать</button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+
+
         <div class="row no-gutters bg-light position-relative mb-3 rounded">
             <div class="col-md-5 mb-md-0 p-md-4">
                 <img src="https://i.artfile.ru/2048x1321_1142946_[www.ArtFile.ru].jpg" class="w-100 rounded" alt="...">
@@ -135,7 +183,6 @@
                 <a href="#" class="stretched-link">Go somewhere</a>
             </div>
         </div>
-
         <div class="row no-gutters bg-light position-relative mb-3 rounded">
             <div class="col-md-7 position-static p-4 pr-md-0">
                 <h5 class="mt-0">Columns with stretched link</h5>
