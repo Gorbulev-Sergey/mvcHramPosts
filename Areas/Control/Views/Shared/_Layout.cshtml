@@ -8,40 +8,102 @@
     <meta name="description" content="Сайт храма Вознесения Господня пос. Бабынино Калужской обл." />
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/css/My_styles.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </head>
-<body>
-    <div>
-        <div class="position-fixed float-left navbar-dark bg-dark text-light h-100 col-3 p-3 shadow">
-            <a class="navbar-brand font-weight-bold align-text-top" style="text-shadow:0px -2px 5px rgba(0, 0, 0,0.1);" asp-area="Control" asp-controller="Home" asp-action="Index">Панель управления</a>
+<body>  
+    <div class="my_sidebar bg-dark">
 
-            <ul class="navbar-nav flex-grow-1">
-                <li class="nav-item">
-                    <a class="nav-link" asp-area="Control" asp-controller="posts" asp-action="Index">Публикации</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-area="Control" asp-controller="imageAlbums" asp-action="Index">Фотоальбомы</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Создать
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" asp-area="Control" asp-controller="posts" asp-action="Create">Публикацию</a>
-                        <a class="dropdown-item" asp-area="Control" asp-controller="imageAlbums" asp-action="Create">Фотоальбом</a>
+        <div class="navbar navbar-expand-md bg-dark flex-column align-items-stretch" style="max-width:300px">
+            <div class="navbar-brand text-white w-100 pl-md-3">
+                <button class="navbar-toggler text-white" data-toggle="collapse" data-target="#c_me"><i class="fas fa-bars"></i></button>
+                <h5 class="d-inline-block mb-0"><b>Панель управления</b></h5>
+            </div>
+            <nav id="c_me" class="navbar-collapse collapse flex-column align-items-stretch bg-dark text-white rounded w-100 mt-3 mb-2">
+                <a class="btn btn-dark btn-block text-left m-0" asp-area="Control" asp-controller="posts" asp-action="Index"><i class="fas fa-home pr-2 ico"></i>Главная</a>
+                <button hidden class="btn btn-dark btn-block text-left m-0"><i class="fas fa-users pr-2 ico"></i>Пользователи</button>
+                <div class="rounded">
+                    @*Публикации*@
+                    <div class="btn-group btn-block rounded">
+                        <a class="btn btn-dark btn-block text-left m-0" asp-area="Control" asp-controller="posts" asp-action="Index"><i class="fas fa-home pr-2 ico"></i>Публикации</a>
+                        <button class="btn btn-dark" data-toggle="collapse" data-target="#c1"><span class="fas fa-chevron-down"></span></button>
                     </div>
-                </li>        
-                <partial name="_LoginPartial" />
-            </ul> 
+                    <div class="collapse rounded" id="c1">
+                        <a class="btn btn-dark btn-block text-left m-0 pl-4" asp-area="Control" asp-controller="posts" asp-action="Index">Все публикации</a>
+                        <a class="btn btn-dark btn-block text-left m-0 pl-4" asp-area="Control" asp-controller="posts" asp-action="Create">Создать</a>
+                    </div>
+                </div>
+                <div class="rounded">
+                    @*Фотоальбомы*@
+                    <div class="btn-group btn-block rounded">
+                        <a class="btn btn-dark btn-block text-left" asp-area="Control" asp-controller="imageAlbums" asp-action="Index"><i class="fas fa-images pr-2 ico"></i>Фотоальбомы</a>
+                        <button class="btn btn-dark" data-toggle="collapse" data-target="#c2"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <div class="collapse rounded" id="c2">
+                        <a class="btn btn-dark btn-block text-left m-0 pl-4" asp-area="Control" asp-controller="imageAlbums" asp-action="Index">Все фотоальбомы</a>
+                        <a class="btn btn-dark btn-block text-left m-0 pl-4" asp-area="Control" asp-controller="imageAlbums" asp-action="Create">Создать</a>
+                    </div>
+                </div>
+                <div hidden class="rounded">
+                    @*Комментарии*@
+                    <div class="btn-group btn-block rounded">
+                        <button class="btn btn-dark btn-block text-left"><i class="far fa-comments pr-2 ico"></i>Комментарии</button>
+                        <button class="btn btn-dark" data-toggle="collapse" data-target="#c3"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <div class="collapse rounded" id="c3">
+                        <button class="btn btn-dark btn-block text-left m-0 pl-4">Все комментарии</button>
+                        <button class="btn btn-dark btn-block text-left m-0 pl-4">Создать</button>
+                    </div>
+                </div>
+            </nav>
         </div>
-        <div class="offset-3 col-9">
-            <div class="pt-3 pb-3 pl-5 pr-5">
-                @RenderBody()
-            </div>            
+
+        <div class="my_header pl-4 pr-2 pt-1 pb-1 pt-md-2 pb-md-2 bg-secondary text-white d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">@ViewData["Title"]</h5>
+            <nav>
+                <a class="btn btn-secondary m-0" asp-area="" asp-controller="Home" asp-action="Index" title="Сайт">Сайт</a>
+                <a class="btn btn-secondary m-0" asp-area="Identity" asp-page="/Account/Manage/Index" title="Профиль"><h5 class="fas fa-user-circle mb-0"></h5></a>
+            </nav>
         </div>
     </div>
+
+    <div class="my_content p-4">
+        @RenderBody()
+    </div>
+
+
+
+
+    @*<div>
+            <div class="position-fixed float-left navbar-dark bg-dark text-light h-100 col-3 p-3 shadow">
+                <a class="navbar-brand font-weight-bold align-text-top" style="text-shadow:0px -2px 5px rgba(0, 0, 0,0.1);" asp-area="Control" asp-controller="Home" asp-action="Index">Панель управления</a>
+
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="Control" asp-controller="posts" asp-action="Index">Публикации</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="Control" asp-controller="imageAlbums" asp-action="Index">Фотоальбомы</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Создать
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" asp-area="Control" asp-controller="posts" asp-action="Create">Публикацию</a>
+                            <a class="dropdown-item" asp-area="Control" asp-controller="imageAlbums" asp-action="Create">Фотоальбом</a>
+                        </div>
+                    </li>
+                    <partial name="_LoginPartial" />
+                </ul>
+            </div>
+            <div class="offset-3 col-9">
+                <div class="pt-3 pb-3 pl-5 pr-5">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>*@
 
     @*<div class="wrapper">
             <div class="sidbar bg-dark text-light">
