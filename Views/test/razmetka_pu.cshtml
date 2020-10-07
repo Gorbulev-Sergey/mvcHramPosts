@@ -10,7 +10,11 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
 
 <style>
-    @@media screen and (min-width:700px) {
+    .far, .fas{
+        width:30px;
+    }
+
+    @@media screen and (min-width:768px) {
         body {
             margin: 0;
             padding: 0;
@@ -19,23 +23,25 @@
         .my_sidebar {
             position: fixed;
             top: 0;
-            z-index:10010;
-            width: 300px;
+            z-index: 10010;
+            width: 280px;
             height: 100%;
-            color: white;
+            color: white;    
+            margin-right:280px;
         }
 
         .my_header {
             position: fixed;
             top: 0;
+            right: 0;
+            left: 280px;
             z-index: 10000;
-            width: 100%;
-            margin-left: 300px;
         }
 
         .my_content {
-            margin-left: 300px;
+            margin-left: 280px;
             margin-top: 56px;
+            flex-grow:1;
         }
 
         .my_gamburger {
@@ -43,7 +49,7 @@
         }
     }
 
-    @@media screen and (max-width:700px) {
+    @@media screen and (max-width:768px) {
         body {
             margin: 0;
             padding: 0;
@@ -52,7 +58,7 @@
         .my_sidebar {
             position: fixed;
             top: 0;
-            z-index:10010;
+            z-index: 10010;
             width: 100%;
             color: white;
         }
@@ -64,7 +70,7 @@
         }
 
         .my_content {
-            margin-top: 120px;
+            margin-top: 100px;
         }
 
         .my_gamburger {
@@ -78,15 +84,15 @@
         <div class="navbar navbar-expand-md bg-dark flex-column align-items-stretch" style="max-width:300px">
             <div class="navbar-brand text-white w-100 pl-md-3">
                 <button class="navbar-toggler text-white" data-toggle="collapse" data-target="#c_me"><i class="fas fa-bars"></i></button>
-                Привет
+                <b>Панель управления</b>
             </div>
             <nav id="c_me" class="navbar-collapse collapse flex-column align-items-stretch bg-dark text-white rounded w-100 mt-2 mb-2">
-                <button class="btn btn-dark btn-block text-left m-0"><span class="fas fa-home pr-2"></span>Главная</button>
-                <button class="btn btn-dark btn-block text-left m-0"><span class="fas fa-users pr-2"></span>Пользователи</button>
+                <button class="btn btn-dark btn-block text-left m-0"><i class="fas fa-home pr-2"></i>Главная</button>
+                <button class="btn btn-dark btn-block text-left m-0"><i class="fas fa-users pr-2"></i>Пользователи</button>
                 <div class="rounded">
                     @*Публикации*@
                     <div class="btn-group btn-block rounded">
-                        <button class="btn btn-dark btn-block text-left"><span class="fas fa-book pr-2"></span>Публикации</button>
+                        <button class="btn btn-dark btn-block text-left"><i class="fas fa-book pr-2"></i>Публикации</button>
                         <button class="btn btn-dark" data-toggle="collapse" data-target="#c1"><span class="fas fa-chevron-down"></span></button>
                     </div>
                     <div class="collapse rounded" id="c1">
@@ -119,78 +125,34 @@
             </nav>
         </div>
 
-        <div class="my_header pl-4 pr-3 pt-2 pb-2 pt-md-3 pb-md-3 bg-secondary text-white">
+        <div class="my_header pl-4 pr-2 pt-1 pb-1 pt-md-2 pb-md-2 bg-secondary text-white d-flex justify-content-between align-items-center">
             <h5 class="mb-0">Заголовок</h5>
+            <nav>
+                <button class="btn btn-secondary m-0">Cайт</button>
+                <button class="btn btn-secondary m-0"><h5 class="fas fa-user-circle mb-0"></h5></button>
+            </nav>            
         </div>
     </div>    
     <div class="my_content p-3">
 
-
-
-        <div hidden class="navbar navbar-expand-md bg-dark flex-column align-items-stretch" style="max-width:300px">
-            <div class="navbar-brand text-white w-100 pl-md-3 mb-1">
-                <button class="navbar-toggler text-white" data-toggle="collapse" data-target="#c_me"><i class="fas fa-bars"></i></button>
-                Привет
-            </div>
-            <nav id="c_me" class="navbar-collapse collapse flex-column align-items-stretch bg-dark text-white rounded w-100 mb-2">
-                <button class="btn btn-dark btn-block text-left m-0"><span class="fas fa-home pr-2"></span>Главная</button>
-                <button class="btn btn-dark btn-block text-left m-0"><span class="fas fa-users pr-2"></span>Пользователи</button>
-                <div class="rounded">
-                    @*Публикации*@
-                    <div class="btn-group btn-block rounded">
-                        <button class="btn btn-dark btn-block text-left"><span class="fas fa-book pr-2"></span>Публикации</button>
-                        <button class="btn btn-dark" data-toggle="collapse" data-target="#c1"><span class="fas fa-chevron-down"></span></button>
-                    </div>
-                    <div class="collapse rounded" id="c1">
-                        <button class="btn btn-dark btn-block text-left m-0 pl-4">Все публикации</button>
-                        <button class="btn btn-dark btn-block text-left m-0 pl-4">Создать</button>
-                    </div>
-                </div>
-                <div class="rounded">
-                    @*Фотоальбомы*@
-                    <div class="btn-group btn-block rounded">
-                        <button class="btn btn-dark btn-block text-left"><i class="fas fa-images pr-2"></i>Фотоальбомы</button>
-                        <button class="btn btn-dark" data-toggle="collapse" data-target="#c2"><i class="fas fa-chevron-down"></i></button>
-                    </div>
-                    <div class="collapse rounded" id="c2">
-                        <button class="btn btn-dark btn-block text-left m-0 pl-4">Все фотоальбомы</button>
-                        <button class="btn btn-dark btn-block text-left m-0 pl-4">Создать</button>
-                    </div>
-                </div>
-                <div class="rounded">
-                    @*Комментарии*@
-                    <div class="btn-group btn-block rounded">
-                        <button class="btn btn-dark btn-block text-left"><i class="far fa-comments pr-2"></i>Комментарии</button>
-                        <button class="btn btn-dark" data-toggle="collapse" data-target="#c3"><i class="fas fa-chevron-down"></i></button>
-                    </div>
-                    <div class="collapse rounded" id="c3">
-                        <button class="btn btn-dark btn-block text-left m-0 pl-4">Все комментарии</button>
-                        <button class="btn btn-dark btn-block text-left m-0 pl-4">Создать</button>
-                    </div>
-                </div>
-            </nav>
-        </div>
-
-
-
         <div class="row no-gutters bg-light position-relative mb-3 rounded">
-            <div class="col-md-5 mb-md-0 p-md-4">
-                <img src="https://i.artfile.ru/2048x1321_1142946_[www.ArtFile.ru].jpg" class="w-100 rounded" alt="...">
+            <div class="col-md-6 mb-md-0 p-md-4">
+                <img src="https://i.artfile.ru/2048x1321_1142946_[www.ArtFile.ru].jpg" class="w-100" alt="...">
             </div>
-            <div class="col-md-7 position-static p-4 pl-md-0">
+            <div class="col-md-6 position-static p-4 pl-md-0">
                 <h5 class="mt-0">Columns with stretched link</h5>
                 <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
                 <a href="#" class="stretched-link">Go somewhere</a>
             </div>
         </div>
         <div class="row no-gutters bg-light position-relative mb-3 rounded">
-            <div class="col-md-7 position-static p-4 pr-md-0">
+            <div class="col-md-6 position-static p-4 pr-md-0">
                 <h5 class="mt-0">Columns with stretched link</h5>
                 <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
                 <a href="#" class="stretched-link">Go somewhere</a>
             </div>
-            <div class="col-md-5 mb-md-0 p-md-4">
-                <img src="https://i.artfile.ru/2048x1321_1142946_[www.ArtFile.ru].jpg" class="w-100 rounded" alt="...">
+            <div class="col-md-6 mb-md-0 p-md-4">
+                <img src="https://i.artfile.ru/2048x1321_1142946_[www.ArtFile.ru].jpg" class="w-100" alt="...">
             </div>
         </div>
         <div class="row no-gutters bg-light position-relative mb-3 rounded">

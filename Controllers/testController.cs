@@ -28,5 +28,10 @@ namespace mvcHramPosts.Controllers
         {
             return View();
         }
+
+        public IActionResult r1()
+        {
+            return View();
+        }
     }
 }
