@@ -1,18 +1,18 @@
 ﻿@model mvcHramPosts.Models.imageAlbum
 
 @{
-    ViewData["Title"] = "Удаление фотоальбома";
+    ViewData["Title"] = "Удалить фотоальбом";
 }
 
     <div class="d-flex justify-content-between align-items-center mb-3">
         @*Заголовок страницы*@
-        <h1>Удалить</h1>
+        <h1></h1>
         <h3>Вы уверены, что хотите увалить этот фотоальбом, вместе с входящими в него фотографиями?</h3>
         @*Кнопка создать*@
             <form class="form-group mb-0" asp-action="Delete">
                 <input type="hidden" asp-for="ID" />
                 <input type="submit" value="Delete" class="btn btn-danger" /> |
-                <a asp-area="Control" asp-controller="imageAlbums" asp-action="Index">Назад</a>
+                <a asp-area="Control" asp-controller="imageAlbums" asp-action="Index">Отмена</a>
             </form>
     </div>
 

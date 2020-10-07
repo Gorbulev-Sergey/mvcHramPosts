@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<mvcHramPosts.Models.post>
 
 @{
-    ViewData["Title"] = "Главная";
+    ViewData["Title"] = "Публикации";
     var context=ViewBag.context as mvcHramPosts.Data.ApplicationDbContext;
 }
 
@@ -22,6 +22,7 @@
     </style>
 
     <div class="d-flex justify-content-between align-items-center mb-3">
+        <div></div>
         @*Навигация*@
         <ul class="nav nav-pills ml-3 justify-content-end" id="pills-tab">
             <li class="nav-item">
