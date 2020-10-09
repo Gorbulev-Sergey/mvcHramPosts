@@ -5,11 +5,6 @@
 
 @inject mvcHramPosts.Areas.Control.Services.IPostsService PostsService
 
-<style>
-    .custom-file-label:after{
-        content:"Выбрать";
-    }
-</style>
 
 <div class="col-md-6">
     <div class="rounded bg-light">
@@ -53,5 +48,12 @@
         </div>
     </div>
 </div>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
 
 

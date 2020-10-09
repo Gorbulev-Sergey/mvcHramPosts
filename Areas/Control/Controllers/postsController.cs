@@ -90,7 +90,7 @@ namespace mvcHramPosts.Areas.Control.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,title,cover_image,description,content,type,created,updated,userId")] post post)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,title,cover_image,description,content,type,created,updated,userId,published")] post post)
         {
             if (id != post.ID)
             {
