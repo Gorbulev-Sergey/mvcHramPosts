@@ -16,7 +16,7 @@ namespace mvcHramPosts.Models
             created = DateTime.Now;
             updated = new DateTime();
             type = type.news;
-            published = true;
+            published = false;
             tags = new List<tag>();
             comments = new List<comment>();
             likes = new List<like>();

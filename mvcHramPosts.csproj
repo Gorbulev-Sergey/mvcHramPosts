@@ -7,6 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\Control\Data\**" />
+    <Compile Remove="Areas\Control\Models\**" />
+    <Content Remove="Areas\Control\Data\**" />
+    <Content Remove="Areas\Control\Models\**" />
+    <EmbeddedResource Remove="Areas\Control\Data\**" />
+    <EmbeddedResource Remove="Areas\Control\Models\**" />
+    <None Remove="Areas\Control\Data\**" />
+    <None Remove="Areas\Control\Models\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\sitemap.xml" />
   </ItemGroup>
 
@@ -28,12 +39,6 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.4" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <Folder Include="Areas\Control\Data\" />
-    <Folder Include="Areas\Control\Models\" />
   </ItemGroup>
 
 </Project>

@@ -17,6 +17,8 @@ using mvcHramPosts.Models;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
+using mvcHramPosts.Areas.Control.Services;
+using mvcHramPosts.Areas.Control.Controllers;
 
 namespace mvcHramPosts
 {
@@ -57,6 +59,8 @@ namespace mvcHramPosts
                     options.ClientId = "690639073976-4iho06or9f2nhcmh7astsan11lvvdgb9.apps.googleusercontent.com";
                     options.ClientSecret = "EldG9O1qTxFzACRdFgkag-PZ";
                 });
+
+            services.AddTransient<IPostsService, PostsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

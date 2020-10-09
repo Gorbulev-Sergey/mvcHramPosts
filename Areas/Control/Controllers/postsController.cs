@@ -55,8 +55,9 @@ namespace mvcHramPosts.Areas.Control.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,title,cover_image,description,content,type,created,updated,userId")] post post)
+        public async Task<IActionResult> Create([Bind("ID,title,cover_image,description,content,type,created,updated,userId,published")] post post)
         {
+
             if (ModelState.IsValid)
             {
                 post.userId = _context.Users.FirstOrDefault(u => u.UserName == User.Identity.Name).Id;
