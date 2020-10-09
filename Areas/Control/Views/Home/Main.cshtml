@@ -5,7 +5,11 @@
 
 @inject mvcHramPosts.Areas.Control.Services.IPostsService PostsService
 
-
+<style>
+    .custom-file-label:after{
+        content:"Выбрать";
+    }
+</style>
 
 <div class="col-md-6">
     <div class="rounded bg-light">
@@ -29,6 +33,9 @@
                     <input name="title" class="form-control border-0" type="text" placeholder="Название" />
                 </div>
                 <div class="form-group">
+                    <textarea name="content" class="form-control border-0" rows="1" placeholder="Краткое описание"></textarea>
+                </div>
+                <div class="form-group">
                     <textarea name="content" class="form-control border-0" rows="3" placeholder="Содержимое"></textarea>
                 </div>
                 <div class="form-group">
@@ -38,13 +45,9 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="input-group border-0">
-                        <div class="custom-file border-0">
-                            <input type="file" class="custom-file-input" id="i4">
-                            <label class="custom-file-label" for="i4">Обложка публикации</label>
-                        </div>
-                    </div>
-                </div>                
+                    <input name="cover_image" class="form-control border-0" type="text" placeholder="Url обложки публикации" onchange="$(this).next().attr('src', $(this).val())" />
+                    <img class="img-fluid rounded mt-3" src="" />
+                </div>
                 <button class="btn btn-dark" type="submit">Добавить</button>
             </form>
         </div>
