@@ -30,10 +30,10 @@
         <a class="nav-link text-dark active" data-toggle="pill" href="#pills-news">Новости и объявления</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark" data-toggle="pill" href="#pills-articles">Может быть интересно</a>
+        <a class="nav-link text-dark" data-toggle="pill" href="#pills-articles">Статьи</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark" data-toggle="pill" href="#pills-addons">Видео</a>
+        <a class="nav-link text-dark" data-toggle="pill" href="#pills-addons">Может быть интересно</a>
     </li>
 </ul>
 </div>
@@ -41,7 +41,7 @@
 <div class="tab-content" id="pills-tabContent">
     @*Новости, объявления*@
     <div class="tab-pane fade active show" id="pills-news">
-        <div id="accordion" class="mt-3">
+        <div id="accordion" class="mt-4">
             @foreach (var item in Model.Where(p => p.type == type.notification && p.published).Reverse())
             {
                 <div class="card mb-4 border-warning">
@@ -51,7 +51,7 @@
                         @if (item.cover_image != null)
                         {
                             <div class="col-lg-4">
-                                <img src="@item.cover_image" class="card-img" alt="...">
+                                <img src="@item.cover_image" class="card-img" />
                             </div>
                         }
                         <div class="col-lg d-flex flex-column">
@@ -152,14 +152,14 @@
             }
             @foreach (var item in Model.Where(p => p.type == type.news && p.published).Reverse())
             {
-                <div class="card mb-4">
+                <div class="card mb-4 border-0 bg-white">
                     <!--Верхняя часть публикации-->
                     <div class="row no-gutters">
                         <!--Картинка публикации-->
                         @if (item.cover_image != null)
                         {
                             <div class="col-lg-5">
-                                <img src="@item.cover_image" class="card-img" alt="...">
+                                <img src="@item.cover_image" class="card-img" />
                             </div>
                         }
                         <div class="col-lg d-flex flex-column">
@@ -261,17 +261,17 @@
     </div>
     @*Статьи*@
     <div class="tab-pane fade" id="pills-articles">
-        <div id="accordion1" class="mt-3">
+        <div id="accordion1" class="mt-4">
             @foreach (var item in Model.Where(p => p.type == type.article && p.published).Reverse())
             {
-                <div class="card mb-4">
+                <div class="card mb-4 border-0 bg-white">
                     <!--Верхняя часть публикации-->
                     <div class="row no-gutters">
                         <!--Картинка публикации-->
                         @if (item.cover_image != null)
                         {
                             <div class="col-lg-5">
-                                <img src="@item.cover_image" class="card-img" alt="...">
+                                <img src="@item.cover_image" class="card-img" />
                             </div>
                         }
                         <div class="col-lg d-flex flex-column">
@@ -373,12 +373,12 @@
     </div>
     @*Может быть интересно*@
     <div class="tab-pane fade" id="pills-addons">
-        <div id="accordion2" class="mt-3">
+        <div id="accordion2" class="mt-4">
             @foreach (var item in Model.Where(p => p.type == type.video && p.published).Reverse())
             {
                 if (item.type == type.video)
                 {
-                    <div class="card mb-4">
+                    <div class="card mb-4 border-0 bg-white">
                         <!--Верхняя часть публикации-->
                         <div class="row no-gutters">
                             <!--Картинка публикации-->
@@ -470,7 +470,7 @@
                 }
                 else
                 {
-                    <div class="card mb-4">
+                    <div class="card mb-4 border-0 bg-white">
                         <!--Верхняя часть публикации-->
                         <div class="row no-gutters">
                             <!--Картинка публикации-->
